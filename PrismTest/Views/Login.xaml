@@ -1,0 +1,59 @@
+﻿<Window x:Class="PrismTest.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrismTest.Views"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="1" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0" Height="40">
+                <Path Width="19.5" Height="28.5" Margin="20,0,12,0" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{StaticResource ThemeColorBrush}" Data="F1 M 25,27L 46,19L 46,22.25L 28.5,29L 31.75,31.25L 51,23.75L 51,48.5L 31.75,57L 25,52L 25,27 Z "/>
+                <!--<Image Source="/Ruby;component/Backend/Icons/32x32/Normal/asset-banknote.png" Style="{StaticResource UserControlImageStyle}" ></Image>-->
+                <TextBlock Foreground="{StaticResource ThemeColorBrush}" Text="Login Window" FontSize="20" Margin="8,2,0,0" FontWeight="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe WP" />
+            </StackPanel>
+            <!--<Thumb Opacity="0" Background="Transparent" Foreground="{x:Null}" DragDelta="Thumb_OnDragDelta"/>-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,8,0"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="{StaticResource MainWindowSplitBorderBrush}"></Grid>
+        <Grid Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Visibility="Visible" Name="AzureLoginGrid" Width="300" >
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <Image Source="../Icons/employees-server.png" Height="64" Width="64" Margin="0,20,0,0" />
+                        <Label Content="User Login" Margin="0,4,0,12" HorizontalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}" FontFamily="Segoe UI Semilight" FontSize="26"></Label>
+                        <Grid Margin="0,0,0,8">
+                            <TextBlock Margin="4,1,2,0" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" Height="24" Text="Username" Foreground="{StaticResource UserControlButtonIsPressedBrush}"
+                                           />
+                            <!--<TextBox Style="{StaticResource LoginTextBoxStyle}" Name="AzureUserNameTextBox" CharacterCasing="Lower" TabIndex="0" Text="{Binding UserName}" />-->
+                            <TextBox Style="{StaticResource LoginTextBoxStyle}" Name="AzureUserNameTextBox" CharacterCasing="Lower" TabIndex="0" Text="{Binding LoginP.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                        <Grid Margin="0,0,0,8"/>
+                        <Grid Margin="0,0,0,8">
+                            <TextBlock Margin="4,1,2,0" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" Height="24" Text="Password" Foreground="{StaticResource UserControlButtonIsPressedBrush}"
+                                           />
+                            <TextBox Style="{StaticResource LoginTextBoxStyle}" Name="AzureDatabaseTextBox" TabIndex="2" />
+                        </Grid>
+
+                        <StackPanel Height="34" >
+                            <Label Content="{Binding LoginP.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <Button Name="UserLoginButton" Content="Login" Width="220" Height="36" TabIndex="3" Margin="0,0,0,32" Click="UserLoginButton_Click" />
+                    </StackPanel>
+                </Grid>
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
